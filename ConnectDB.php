@@ -83,6 +83,13 @@ class ConnectDB {
             $_SESSION['text']="มีข้อผิดพลาดในการเพิ่มข้อมูลสินค้า ".$sql;
         }
     }
+    public function deleteItem($del){
+            $sql="Delete from items where item_ID='".$del."'";
+            echo $sql;
+            $result= mysqli_query($this->connect(), $sql);
+            
+        if($result) header ("location:controItem.php");
+    }
 //    public function delete($del){
 //        session_start();
 //        if (sizeof($del)!=0){

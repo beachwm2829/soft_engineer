@@ -50,7 +50,7 @@ and open the template in the editor.
             }
             else echo "Connect fail".myaqli_eror();
         ?>
-        <form action="delete.php" method="POST">
+          <form action="deleteItem.php" method="POST">
             
         <table>
             <tr>
