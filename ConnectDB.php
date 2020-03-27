@@ -72,13 +72,13 @@ class ConnectDB {
             $_SESSION['text']="มีข้อผิดพลาดในการอัพเดทข้อมูลสินค้า ".$sql;
         }
     }
-   public function AddProduct($user_id, $item_name, $item_price, $item_detail, $item_amount, $item_img, $item_type){
+   public function AddProduct($item_name,$item_price,$item_detail,$item_amount,$pro_image){
         session_start();
         $sql = "INSERT INTO `items`(`item_name`, `item_price`, `item_detail`, `item_amount`, `img`, `user_id`)"
-                . "VALUES ('$item_name', '$item_price', '$item_detail', '$item_amount', '$item_img', '$user_id')";
+                . "VALUES ('$item_name', '$item_price', '$item_detail', '$item_amount', '$pro_image', '1')";
         if(mysqli_query($this->connect(), $sql)){
                 $_SESSION['text']="ข้อมูลสินค้าถูกเพิ่มแล้ว";
-                header("Location:FormProduct.php");
+                header("Location:controItem.php");
         }else{
             $_SESSION['text']="มีข้อผิดพลาดในการเพิ่มข้อมูลสินค้า ".$sql;
         }
