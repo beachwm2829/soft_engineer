@@ -84,11 +84,22 @@ class ConnectDB {
         }
     }
     public function deleteItem($del){
-            $sql="Delete from items where item_ID='".$del."'";
+            $sql="Delete from items where item_id='".$del."'";
             echo $sql;
             $result= mysqli_query($this->connect(), $sql);
             
         if($result) header ("location:controItem.php");
+    }
+    
+    public function UpdateItem($item_name,$item_price,$item_detail,$item_amount,$pro_image,$item_id){
+        echo $item_id;
+        $sql="UPDATE `items` SET `item_name`='".$item_name."',`item_price`='".$item_price."',`item_detail`='".$item_detail."',`item_amount`='".$item_amount."',`img`='".$pro_image."' WHERE item_id='".$item_id."'";
+        if(mysqli_query($this->connect(),$sql)){
+            header("location:controItem.php");
+        }
+        else{ echo "Connet F";
+        echo $sql;
+        }
     }
 //    public function delete($del){
 //        session_start();

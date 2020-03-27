@@ -61,7 +61,7 @@ and open the template in the editor.
             while($row= mysqli_fetch_array($objquery)){
                 echo "<tr>"; 
                 echo "<td><p><label><input type='checkbox' name='checkbox' value='".$row['item_id']."'><span></span></label></p></td>";
-                echo "<td><a href = reg_1.php?s=1&id=".$row['item_id'].">แก้ไข</td>";
+                echo "<td><a href = EditItem.php?s=1&id=".$row['item_id'].">แก้ไข</td>";
                 echo "<td>".$row['item_id']."</td>";  
                 echo "<td>".$row['item_name']."</td>";
                 echo "<td>".$row['item_price']."</td>";
@@ -80,7 +80,7 @@ and open the template in the editor.
     </center>
             <center>
                 <br>
-                <button class="botG"><a href="reg_2.php" class="botN">เพิ่มข้อมูล</a></button>
+                <button class="botG"><a href="AddItem.php" class="botN">เพิ่มข้อมูล</a></button>
             </center>
       </div>
 
