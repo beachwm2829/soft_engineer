@@ -14,20 +14,18 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
           <?php 
-                      echo '<li><a href="information.php">ข้อมูลส่วนตัว</a></li>';
+                echo '<li><a href="information.php">ข้อมูลส่วนตัว</a></li>';
             ?>
-          <li>
-              <?php 
-                  echo '<a href="login.php">Login</a>';
-                  ?>
-          </li>
         </ul>
         <form class="navbar-form navbar-left" name="qp" action="index.php" method="GET">
-        <div class="form-group"> &nbsp; 
-        <b>  ค้นหาสินค้า  </b> 
-          <input type="text" class="form-control" placeholder="ระบุคำค้น" name="q">
+            <div class="form-group"> &nbsp; 
+        <b  style="margin-right: 10px;">  ค้นหาสินค้า  </b> 
+          <input type="text" class="form-control" placeholder="ค้นหาสินค้า" name="q">
         </div>
         <button type="submit" class="btn btn-info">ค้นหา</button>
+        <?php 
+            echo '<a href="login.php" style="position: absolute;bottom: 15px;right: 25px;">Login</a>';
+        ?>
       </form>
 
     </div><!-- /.navbar-collapse -->

@@ -15,12 +15,10 @@
     </style>
   </head>
   <body>
+    <?php include('navbar.php');?>
     <div class="container">
       <div class="row">
-        <?php include('navbar.php');?>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-15">
           <?php include('banner.php');?>
         </div>
       </div>
@@ -47,6 +45,8 @@
                       include('listprd_by_type.php');
                       }else if($n!=''){
                             include('listprd_by_q.php');
+                      }else{
+                            include('listprd.php');
                       }
            ?> 
           </div>
