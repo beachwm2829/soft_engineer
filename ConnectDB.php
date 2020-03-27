@@ -34,16 +34,17 @@ class ConnectDB {
             header("Location:login.php");
         }
     }
-    public function add($user_user, $user_pass,$user_name, $user_sex, $user_tel, $user_address, $user_status){
+    public function add($m_id,$m_user, $m_password, $m_name, $m_phone, $m_address,$m_gender,$m_status){
         session_start();
-        $sql = "INSERT INTO `user`(`user_id`, `user_username`, `user_pass`, `user_name`, `user_sex`, `user_tel`, `user_address`, `user_status`)"
-        . "('$user_user', '$user_pass','$user_name', '$user_sex', '$user_tel', '$user_address', '$user_status')";
-        $result=mysqli_query($this->connect(),$sql);
-        if(mysqli_num_rows($result)==1){
-            header("Location:FormInput.php?text=มีข้อผิดพลาดในการสมัคร");
+        $sql = "INSERT INTO `user`(`user_id`, `user_username`, `user_pass`, `user_name`, `user_sex`, `user_tel`, `user_address`, `user_status`) VALUES
+        ('".$m_id."', '".$m_user."', '".$m_password."','".$m_name."', '".$m_gender."', '".$m_phone."', '".$m_address."', '".$m_status."')";
+        
+        if(mysqli_query($this->connect(), $sql)){
+            header("Location:login.php");
         }else{
-            header("Location:login.php?text=สมัครสมาชิกสำเร็จ");
+            echo $sql;
         }
+       
     }
     public function update($user_id, $user_pass,$user_name, $user_sex, $user_tel, $user_address){
         session_start();

@@ -1,15 +1,13 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
 require_once './ConnectDB.php';
-/////////////////////////////////Member////////////////////////////////////////////////////
-$m_id = $_POST['mid'];
-$m_fname = $_POST['fname'];
-$m_lname = $_POST['lname'];
+/////////////////////////////////User////////////////////////////////////////////////////
+$m_user = $_POST['user'];
 $m_password = $_POST['pass'];
+$m_name = $_POST['name'];
 $m_phone = $_POST['phone'];
 $m_address = $_POST['address'];
-$m_status = $_POST['status'];
-$m_wallet = $_POST['$m_wallet'];
+$m_gender = $_POST['gender'];
 ///////////////////////////Product////////////////////////////////////////////
 $p_id= $_POST['iid'];
 $p_name = $_POST['name'];
@@ -31,7 +29,8 @@ if(strcmp($submit, "Insert")==0){
         header("Location:login.php");
 }else if  (strcmp($submit, "สมัครสมาชิก")==0){
         $obj = new ConnectDB();
-        $obj ->add($m_fname, $m_phone, $m_address, $m_lname, $m_password);
+        $obj ->add($m_id,$m_user, $m_password, $m_name, $m_phone, $m_address,$m_gender,$m_status='User');   
+
 }else if (strcmp($submit, "UpdateProduct")==0){
             $obj = new ConnectDB();
             $obj->updateProduct($p_id, $p_name, $p_price, $p_image, $p_type);
