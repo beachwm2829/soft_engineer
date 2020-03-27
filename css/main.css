@@ -1,0 +1,32 @@
+
+.heardMain{
+    background-color: #ffffff;
+    height: 150px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border: 2px #90a4ae solid;
+}
+.content{
+    background-color: #ffffff;
+    float:left;
+    height: 150px;
+    width: 250px;
+    margin-top: 0%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border: 2px #90a4ae solid;
+}
+.sidebar{
+    background-color: #ffffff;
+    float:right;
+    height: 150px;
+    width: 680px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 0%;
+    margin-right: 2%;
+    border: 2px #90a4ae solid;
+}

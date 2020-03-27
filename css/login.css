@@ -1,0 +1,120 @@
+.bodylogin{
+    color: #90a4ae;
+    text-align: center;
+    font-size: 60px;
+}
+.bodycorom{
+    color: #90a4ae;
+    text-align: left;
+    font-size: 40px;
+}
+.menu{
+    color: #000000;
+    background-color: #cccccc;
+    text-align: left;
+    font-size: 20px;
+}
+.menuNot{
+    color: #000000;
+    text-align: left;
+    font-size: 20px;
+}
+.gay{
+    background-color: #F1F1F1;
+}
+.textA{
+    color: #666666;
+    font-size: 20px;
+    
+}
+.textB{
+    color: #666666;
+    font-size: 20px;
+    text-align:  justify;
+}
+.headIO{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%
+}
+.headT{
+    background-color: #ffffff;
+    color: #000000;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 30%;
+    margin-right: 30%;
+    border: 2px #000000 solid;
+
+}
+.headHR{
+    margin-top: 2%;
+    margin-bottom: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 2px #000000 solid;
+}
+.headHRmini{
+    margin-top: 2%;
+    margin-bottom: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 2px #000000 solid;
+}
+.headB{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 45%;
+    margin-right: 45%
+}
+.botY{
+    background-color: #666666; 
+    border: #4CAF50;
+    color: #ffffff;
+    padding: 20px 32px;
+    text-align: center;
+}
+.botN{
+    color: #ffffff;
+    text-align: center;
+}
+.botR{
+    background-color: #ff0033; 
+    border: #4CAF50;
+    color: #ffffff;
+    padding: 15px 32px;
+    text-align: center;
+}
+.botG{
+    background-color: #4CAF50; 
+    border: #4CAF50;
+    color: #ffffff;
+    padding: 15px 32px;
+    text-align: center;
+}
+.reg2{
+    background-color: #ffffff;
+    margin-top: 4%;
+    margin-bottom: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 2px #90a4ae solid;
+}
+.reg3{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.food{
+    background-color: #666666;
+    margin-top: 80%;
+}
+.helper-x{
+    position:relative;
+    min-height:18px;
+    font-size:12px;
+    color:rgba(0,0,0,0.54)}
