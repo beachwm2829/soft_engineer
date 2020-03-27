@@ -17,7 +17,7 @@ if($totalRows_prd > 0) { ?>
     <p align="center">
       <b><?php echo $row_prd['item_name']; ?> <font color="red">  <?php echo $row_prd['item_price']; ?>  บาท </font> </b>
       <br />
-      <a href="product-detail.php?iid=<?php echo $row_prd['item_id'];?>&act=product-detail" class="btn btn-info btn-xs" target="_blank">สั่งซื้อ </a>
+      <a href="product-detail.php?itemid=<?php echo $row_prd['item_id'];?>&act=product-detail" class="btn btn-info btn-xs" target="_blank">สั่งซื้อ </a>
       
      
       
