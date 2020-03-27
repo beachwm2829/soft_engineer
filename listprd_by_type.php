@@ -4,7 +4,7 @@
 $t_id = $_GET['tid'];
 require_once  './ConnectDB.php';
 $con = new connectDB();
-$query_prd = "SELECT * FROM product WHERE p_type=$t_id ORDER BY p_type ASC";
+$query_prd = "SELECT * FROM items WHERE item_type=$t_id ORDER BY item_type ASC";
 $prd = mysqli_query($con->connect(),$query_prd) or die(mysql_error());
 $row_prd = mysqli_fetch_assoc($prd);
 $totalRows_prd = mysqli_num_rows($prd);

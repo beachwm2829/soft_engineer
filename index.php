@@ -47,8 +47,6 @@
                       include('listprd_by_type.php');
                       }else if($n!=''){
                             include('listprd_by_q.php');
-                      }else{
-                            include('listprd.php');
                       }
            ?> 
           </div>

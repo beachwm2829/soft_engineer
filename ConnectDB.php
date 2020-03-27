@@ -4,64 +4,52 @@ class ConnectDB {
         $dbhost="localhost";
         $dbuser ="root";
         $dbpassword="";
-        $db="test";
+        $db="bd_se";
         $con=new mysqli($dbhost,$dbuser,$dbpassword,$db)
                 or die("Connect failed: %s\n".$con->error);
         mysqli_set_charset($con,"utf8");
         return $con;
     }
     public function checkuser($user,$password) {
-        $sql = "SELECT * FROM munber WHERE  m_phone='".$user."' and m_password='".$password."'";
+        $sql = "SELECT * FROM user WHERE  user_username='".$user."' and user_pass='".$password."'";
         $result=mysqli_query($this->connect(),$sql);
         if(mysqli_num_rows($result)==1){
             session_start();
             $row = mysqli_fetch_array($result);
-            $_SESSION['user']=$row['m_phone'];
-            $_SESSION['pass']=$row['m_password'];
-            $_SESSION['text']="ยินดีตอนรับเข้าสู่ระบบ";
-            $status = $row['m_status'];
+            $_SESSION['user']=$row['user_username'];
+            $_SESSION['pass']=$row['user_pass'];
+    
+            $status = $row['user_status'];
             if(strcmp($status,"Admin")==0){
-                $_SESSION['m_status']="Admin";
+                $_SESSION['user_status']="Admin";
                 header("Location:FormAdmin.php");
-            }else  {
-                $_SESSION['m_status']="User";
+            }else if(strcmp($status,"Owner")==0){
+                $_SESSION['user_status']="Owner";
+                header("");
+            }else{
+                $_SESSION['user_status']="User";
                 header("Location:information.php");
             }
             }else{
             header("Location:login.php");
         }
     }
-       public function insert($m_fname, $m_phone,$m_address, $m_lname, $m_status, $m_password, $m_wallet){
+    public function add($user_user, $user_pass,$user_name, $user_sex, $user_tel, $user_address, $user_status){
         session_start();
-        $sql = "INSERT INTO munber(m_fname, m_phone,m_address, m_lname, m_status, m_password, m_wallet) VALUES ('$m_fname', '$m_phone','$m_address', '$m_lname', '$m_status', '$m_password', '$m_wallet')";
-        if(mysqli_query($this->connect(), $sql)){
-            if($_SESSION['m_status']=="User"){
-                $_SESSION['text']="ข้อมูลถูกเพิ่มแล้ว";
-                header("Location:FormUser.php");
-            }else{
-                $_SESSION['text']="ข้อมูลถูกเพิ่มแล้ว";
-                header("Location:FormAdmin.php");
-            }
+        $sql = "INSERT INTO `user`(`user_id`, `user_username`, `user_pass`, `user_name`, `user_sex`, `user_tel`, `user_address`, `user_status`)"
+        . "('$user_user', '$user_pass','$user_name', '$user_sex', '$user_tel', '$user_address', '$user_status')";
+        $result=mysqli_query($this->connect(),$sql);
+        if(mysqli_num_rows($result)==1){
+            header("Location:FormInput.php?text=มีข้อผิดพลาดในการสมัคร");
         }else{
-            $_SESSION['text']="ข้อมูลไม่สามารถเพิ่มได้";
-            header("Location:FormAdmin.php");
+            header("Location:login.php?text=สมัครสมาชิกสำเร็จ");
         }
     }
-         public function add($m_fname, $m_phone, $m_address, $m_lname, $m_password){
-            session_start();
-                $sql = "INSERT INTO munber(m_fname, m_phone,m_address, m_lname, m_status, m_password, m_wallet) VALUES ('$m_fname', '$m_phone','$m_address', '$m_lname', 'User', '$m_password', '0')";
-                $result=mysqli_query($this->connect(),$sql);
-                if(mysqli_num_rows($result)==1){
-                    header("Location:FormInput.php?text=มีข้อผิดพลาดในการสมัคร");
-                }else{
-                    header("Location:login.php?text=สมัครสมาชิกสำเร็จ");
-                }
-    }
-    public function update($m_id, $m_fname, $m_phone, $m_address, $m_lname, $m_password, $m_wallet){
+    public function update($user_id, $user_pass,$user_name, $user_sex, $user_tel, $user_address){
         session_start();
-        $sql = "UPDATE munber SET  m_fname='$m_fname', m_phone='$m_phone',m_address='$m_address', m_lname='$m_lname', m_password='$m_password', m_wallet='$m_wallet' WHERE m_id='".$m_id."'  or m_phone='".$m_phone."'";
+        $sql = "UPDATE user SET  user_pass='$user_pass', user_name='$user_name', user_sex='$user_sex', user_tel='$user_tel', user_address='$user_address' WHERE user_id='".$user_id."'";
         if(mysqli_query($this->connect(), $sql)){
-            if($_SESSION['m_status']=="User"){
+            if($_SESSION['user_status']=="User"){
                 $_SESSION['text']="ข้อมูลถูกอัพเดทแล้ว";
                 header("Location:information.php");
             }else{
@@ -73,22 +61,9 @@ class ConnectDB {
             echo '<p>Canot UPDATE';
         }
     }
-     public function updateUser($m_id, $m_fname, $m_phone, $m_address, $m_lname, $m_status, $m_password, $m_wallet){
+    public function updateProduct($item_id, $item_name, $item_price, $item_detail, $item_amount, $item_img, $item_type){
         session_start();
-        $user =  $_SESSION['user'];
-       $sql = "UPDATE munber SET  m_fname='$m_fname', m_phone='$m_phone',m_address='$m_address', m_lname='$m_lname', m_status='$m_status', m_password='$m_password', m_wallet='$m_wallet' WHERE m_id='".$m_id."'";
-        if(mysqli_query($this->connect(), $sql)){
-            //if($_SESSION['status']=="User"){
-                $_SESSION['text']="ข้อมูลถูกอัพเดทแล้ว";
-                header("Location:FormUser.php");
-            //}else{}
-        }else{
-            $_SESSION['text']="มีข้อผิดพลาดในการอัพเดท ".$sql;
-        }
-    }
-    public function updateProduct($p_id,$p_name, $p_price,$p_image, $p_type){
-        session_start();
-        $sql = "UPDATE product SET  p_name='$p_name',p_price='$p_price', p_type='$p_type' WHERE p_id ='".$p_id."'";
+        $sql = "UPDATE `items` SET `item_name`= '".$item_name."',`item_price`='".$item_price."',`item_detail`='".$item_detail."',`item_amount`='".$item_amount."',`img`='".$item_img."',`item_type`='".$item_type."' WHERE `item_id` ='".$item_id."'";
         if(mysqli_query($this->connect(), $sql)){
                 $_SESSION['text']="ข้อมูลสินค้าถูกอัพเดทแล้ว";
                 header("Location:FormProduct.php");
@@ -96,9 +71,10 @@ class ConnectDB {
             $_SESSION['text']="มีข้อผิดพลาดในการอัพเดทข้อมูลสินค้า ".$sql;
         }
     }
-   public function AddProduct($p_name, $p_price,$p_image, $p_type){
+   public function AddProduct($user_id, $item_name, $item_price, $item_detail, $item_amount, $item_img, $item_type){
         session_start();
-        $sql = "INSERT INTO product(p_name,p_price,p_type) VALUES ('$p_name', '$p_price', '$p_type')";
+        $sql = "INSERT INTO `items`(`item_name`, `item_price`, `item_detail`, `item_amount`, `img`, `user_id`)"
+                . "VALUES ('$item_name', '$item_price', '$item_detail', '$item_amount', '$item_img', '$user_id')";
         if(mysqli_query($this->connect(), $sql)){
                 $_SESSION['text']="ข้อมูลสินค้าถูกเพิ่มแล้ว";
                 header("Location:FormProduct.php");
