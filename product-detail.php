@@ -36,7 +36,8 @@
                             <img src="fileupload/<?php echo $row_prd['img']; ?>" width="40%" style="margin-left: 20px"/>
                         </div>
                         <div class="col-sm" align="right">
-                             <img src="fileupload/<?php echo $row_prd['img']; ?>" width="40%" style="margin-left: 20px"/>
+                            <h5><?php // echo $row_prd['item_name']; ?></h5>
+                            <a href="index.php" class="btn btn-info" style="margin-left: 22%"> ทั้งหมด </a>
                         </div>
                     </div>
                 </div>

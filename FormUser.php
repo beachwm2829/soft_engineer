@@ -11,10 +11,10 @@
             session_start();
             require_once  './ConnectDB.php';
             $user = $_SESSION['user'];
-            $status = $_SESSION['m_status'];
+            $status = $_SESSION['user_status'];
             $con = new connectDB();
             if ($con->connect()) {
-                    $sql = "SELECT * FROM munber WHERE m_phone='".$user."'";
+                    $sql = "SELECT * FROM user WHERE user_username='".$user."'";
                     $objquery = mysqli_query($con->connect(), $sql);
             } else {
     echo 'connect failed:' . mysql_error();
@@ -26,8 +26,8 @@
             while($row = mysqli_fetch_array($objquery)){
                 echo "<tr>";
                 //echo "<td><input type='checkbox' name='checkbox[]' value='".$row['mid']."'</td>";
-                echo "<td><a href=FormInput.php?s=1&user=".$row['m_phone'].">แก้ไข</a></td>";
-                echo "<td>".$row['m_id']."</td>";
+                echo "<td><a href=FormInput.php?s=1&user=".$row['user_username'].">แก้ไข</a></td>";
+                echo "<td>".$row['user_name']."</td>";
                 echo "<td>".$row['m_fname']."</td>";
                 echo "<td>".$row['m_lname']."</td>";
                 echo "<td>".$row['m_status']."</td>";
