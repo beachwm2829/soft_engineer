@@ -2,7 +2,7 @@
 error_reporting(E_ALL ^ E_NOTICE);
 require_once './ConnectDB.php';
 /////////////////////////////////User////////////////////////////////////////////////////
-$user_id = $_POST['$user_id'];
+$user_id = $_POST['user_id'];
 $user_username = $_POST['user_username'];
 $user_pass = $_POST['user_pass'];
 $user_name = $_POST['user_name'];
@@ -42,7 +42,26 @@ if(strcmp($submit, "Insert")==0){
  
             $obj = new ConnectDB();
             $obj->AddProduct($p_name, $p_price, $p_detail ,$p_amount , $p_type, $p_image);
-}else{
+}
+else if (strcmp($submit, "ลบข้อมูล")==0){       
+        $con = new connectdb();
+        for($i=0;$i< count($_POST["checkbox"]);$i++){
+             $del =  $_POST["checkbox"][$i];
+        $sql = "DELETE FROM user where user_id=".$del;
+        if (mysqli_query($con->connect(), $sql)){
+            header("Location:FormAdmin.php");
+        } else {
+            echo "Error deleting record: " .$sql;
+        }
+    }
+}
+else if (strcmp($submit, "เพิ่มข้อมูล")==0){       
+    header("Location:FormInput.php");
+}
+else if (strcmp($submit, "ออกจากระบบ")==0){       
+    header("Location:login.php");
+}
+else{
     echo $submit;
 }
 ?>
