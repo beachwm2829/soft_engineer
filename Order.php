@@ -24,7 +24,7 @@
         $status = $_SESSION['user_status'];
         $con = new connectDB();
         if ($con->connect()) {
-            $sql = "SELECT * FROM `payment`";
+            $sql = "SELECT * FROM `payment` WHERE `User _ID`='" . $user . "'";
             $objquery = mysqli_query($con->connect(), $sql);
         } else {
             echo 'connect failed:' . mysql_error();
@@ -48,29 +48,18 @@
             </div>
         </div>
         <table>
-            <tr><th>จัดส่งสินค้า</th><th>Username</th><th>สินค้า</th><th>จำนวนเงิน</th><th>วันเวลา</th><th>สถานนะ</th></tr>
+            <tr><th>แก้ไข</th><th>สินค้า</th><th>จำนวนเงิน</th><th>วันเวลา</th><th>สถานนะ</th></tr>
             <?php
             while ($row = mysqli_fetch_array($objquery)) {
                 $sql = "SELECT * FROM `items` WHERE `item_id`='" . $row['Item_ID'] . "'";
                 $objitem = mysqli_query($con->connect(), $sql);
                 $row_item = mysqli_fetch_array($objitem);
-                
-                $sql = "SELECT * FROM `user` WHERE `user_id`='" . $row['User _ID'] . "'";
-                $objuser = mysqli_query($con->connect(), $sql);
-                $row_user = mysqli_fetch_array($objuser);
-                
                 echo "<tr>";
-                echo "<td><a href=payment.php?s=6&user=" . $row['Cdit_ID'] . ">ยืนยันการจัดส่ง</a></td>";
-                echo "<td>" . $row_user['user_username'] . "</td>";
+                echo "<td><a href=payment.php?s=5&user=" . $row['Cdit_ID'] . ">ยกเลิกรายการ</a></td>";
                 echo "<td>" . $row_item['item_name'] . "</td>";
                 echo "<td>" . $row_item['item_price'] . "</td>";
                 echo "<td>" . $row['Cdit_Date'] . "</td>";
-                if($row['Cdit_Status'] == 'รอดำเนินการ'){
-                    echo "<td  style='color: red'>" . $row['Cdit_Status'] . "</td>";
-                }else{
-                    echo "<td  style='color: greenyellow'>" . $row['Cdit_Status'] . "</td>";
-                }
-                
+                echo "<td>" . $row['Cdit_Status'] . "</td>";
                 echo "</tr>";
             }
             ?>

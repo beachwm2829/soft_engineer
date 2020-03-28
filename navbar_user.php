@@ -17,7 +17,7 @@
                 echo '<li><a href="information.php">ข้อมูลส่วนตัว</a></li>';
             ?>
           <?php 
-                echo '<li><a href="information.php">ข้อมูลการสั่งซื้อ</a></li>';
+                echo '<li><a href="Order.php">ข้อมูลการสั่งซื้อ</a></li>';
             ?>
         </ul>
         <form class="navbar-form navbar-left" name="qp" action="index.php" method="GET">
