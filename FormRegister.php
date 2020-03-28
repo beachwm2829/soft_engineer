@@ -4,7 +4,7 @@
     <title> Boy & Girl </title>
 </head>
 <body>
-    <script src="js/checkinput.js" ></script>
+    <script src="js/register.js" ></script>
     <?php
         error_reporting(E_ALL ^ E_NOTICE); 
         $s = $_REQUEST['s'];
@@ -14,7 +14,7 @@
         ?>
     <div class="box">
         <div id="container">
-            <form action="checkaction.php" method="POST" name="formjs">
+            <form action="checkaction.php" name="register" method="POST" name="register">
             
             <label class="LabelText" for="id">Username</label>
           
@@ -44,7 +44,7 @@
                         echo "<input type=radio  name=gender value='male'> Male";
                         echo "<input type=radio  name=gender value='female'> FeMale <br>";
              ?>
-            <br><input type='submit' name='submit' value="<?php echo $text; ?>" onclick="return check()">
+            <br><input type='submit' name='submit' value="<?php echo $text; ?>" onclick="return checkformRegister()">
                     
     </form>
         </div>
