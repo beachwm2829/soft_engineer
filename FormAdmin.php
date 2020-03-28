@@ -18,7 +18,7 @@
             ?>
         <form action="checkaction.php"  method="POST">
         <table>
-            <tr><th>ID</th><th>Username</th><th>ชื่อ</th><th>เพศ</th><th>เบอร์โทร</th><th>ที่อยู่</th><th>แก้ไข</th><th>ลบ</th></tr>
+            <tr><th>ID</th><th>Username</th><th>ชื่อ</th><th>เพศ</th><th>เบอร์โทร</th><th>ที่อยู่</th><th>สถานะ</th><th>แก้ไข</th><th>ลบ</th></tr>
             <?php
             while($row = mysqli_fetch_array($objquery)){
                 echo "<tr>";
@@ -29,6 +29,7 @@
                 echo "<td>".$row['user_sex']."</td>";
                 echo "<td>".$row['user_tel']."</td>";
                 echo "<td>".$row['user_address']."</td>";
+                echo "<td>".$row['user_status']."</td>";
                 echo "<td><a href=FormInput.php?s=1&user=".$row['user_id'].">แก้ไข</a></td>";
                 echo "<td><input type='checkbox' name='checkbox[]' value='".$row['user_id']."'</td>";
                 echo "</tr>";
