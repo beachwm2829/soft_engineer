@@ -41,11 +41,12 @@
                         //secho "<p>status=".$_SESSION['status'];
             ?>
         </table>
-        <center>
-            <input 
-            <button class ="button button1"><a href="FormInput.php"</a>เพิ่มข้อมูล</button>
-            <button class ="button button3"><a href="login.php" </a>Logout</button>
-        </center>
+        
+            <input type="submit" name="submit" value="เพิ่มข้อมูล">
+            <input type="submit" name="submit" value="ลบข้อมูล">
+            <input type="submit" name="submit" value="ออกจากระบบ">
+<!--           <button class ="button button1"><a href="FormInput.php"</a>เพิ่มข้อมูล</button>
+            <button class ="button button3"><a href="login.php" </a>Logout</button>-->
         </form>
     <from>
         <button class ="button button2"><a href="controItem.php"</a>คลังสินค้า</button>
