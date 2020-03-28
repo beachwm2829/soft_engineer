@@ -44,7 +44,7 @@
         </center>
         </form>
     <from>
-        <button class ="button button2"><a href="FormProduct.php?"</a>คลังสินค้า</button>
+        <button class ="button button2"><a href="controItem.php"</a>คลังสินค้า</button>
     </from>
     </body>
 </html>
