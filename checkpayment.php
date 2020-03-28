@@ -68,7 +68,7 @@
                 if($row['Cdit_Status'] == 'รอดำเนินการ'){
                     echo "<td  style='color: red'>" . $row['Cdit_Status'] . "</td>";
                 }else{
-                    echo "<td  style='color: greenyellow'>" . $row['Cdit_Status'] . "</td>";
+                    echo "<td  style='color: green'>" . $row['Cdit_Status'] . "</td>";
                 }
                 
                 echo "</tr>";
