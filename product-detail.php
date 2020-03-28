@@ -17,7 +17,11 @@
     <body>
         <?php
         session_start();
-        include('navbar.php');
+        if (isset($_SESSION['uid'])) {
+            include('navbar_user.php');
+        } else {
+            include('navbar.php');
+        }
         $t_id = $_GET['itemid'];
         require_once './ConnectDB.php';
         $con = new connectDB();
@@ -26,40 +30,47 @@
         $row_prd = mysqli_fetch_assoc($prd);
         $totalRows_prd = mysqli_num_rows($prd);
         $_SESSION['tid'] = $row_prd['item_id'];
-        
         ?>
         <!--start show  product--> 
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-            <div class="panel panel-info">
-                <div class="panel-heading">    
-                    <div class="row">
-                        <div class="col-sm" align="left">
-                            <img src="fileupload/<?php echo $row_prd['img']; ?>" width="40%" style="margin-left: 20px"/>
+        <div class="container" >
+            <div class="card" style="background-color: white;">
+                <div class="card-header" align="center" style=" height: 100px;">
+                    <br>
+                    <h1><?php echo $row_prd['item_name']; ?></h1>
+                    <br>
+                </div>
+                <div class="card-body"><div class="container" >
+
+                        <div class="row">
+                            <div class="col-sm-4"> 
+                                <img src="fileupload/<?php echo $row_prd['img']; ?>" width="100%" style="margin-left: 20px"/>
+                            </div>
+                            <div class="col-sm-8">
+                                <div align="center">
+                                    <h3 align="left">รายละเอียดสินค้า : <?php echo $row_prd['item_detail']; ?></h3>
+                                    <h2 align="left">ราคา : <?php echo $row_prd['item_price']; ?> บาท</h2>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm" align="right">
-                            <h1><?php echo $row_prd['item_name']; ?></h1>
-                            <h5>ราคา <?php echo $row_prd['item_price']; ?> บาท</h5>
-                            <h5>รายละเอียดสินค้า <?php echo $row_prd['item_detail']; ?></h5>
-                            <a href="payment.php" class="btn btn-info" style="margin-left: 22%"> สั่งซื้อ </a>
-                        </div>
+
+                    </div></div>
+                <div class="card-footer">
+                    <div align="center">
+                        <br>
+                        <a href="payment.php" class="btn btn-info" style="width: 300px;"> สั่งซื้อ </a>
+                        <br>
+                        <br>
                     </div>
                 </div>
+
+
+                <div class="container" >
+
+
+                </div>
+
             </div>
-        </div>
-                </div></div>
-        
-<!--         <div class="row">
-                        <div class="col-sm" align="left">
-                            <img src="fileupload/<?php // echo $row_prd['img']; ?>" width="40%" style="margin-left: 20px"/>
-                        </div>
-                        <div class="col-sm" align="right">
-                            <h5><?php // echo $row_prd['item_name']; ?></h5>
-                            <a href="index.php" class="btn btn-info" style="margin-left: 22%"> ทั้งหมด </a>
-                        </div>
-                    </div>-->
-        <!--end show  product-->
     </body>
 </html>
 <?php include('f.php'); ?>
+
