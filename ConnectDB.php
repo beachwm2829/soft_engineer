@@ -79,10 +79,10 @@ class ConnectDB {
         }
     }
 
-    public function AddProduct($item_name, $item_price, $item_detail, $item_amount, $item_type, $pro_image) {
+    public function AddProduct($item_name,$item_price,$item_detail,$item_amount,$pro_image) {
         session_start();
-        $sql = "INSERT INTO `items`(`item_name`, `item_price`, `item_detail`, `item_amount`, `item_type`, `img`, `user_id`)"
-                . "VALUES ('$item_name', '$item_price', '$item_detail', '$item_amount', '$item_type', '$pro_image', '1')";
+        $sql = "INSERT INTO `items`(`item_name`, `item_price`, `item_detail`, `item_amount`, `img`, `user_id`)"
+                . "VALUES ('$item_name', '$item_price', '$item_detail', '$item_amount', '$pro_image', '1')";
         if (mysqli_query($this->connect(), $sql)) {
             $_SESSION['text'] = "ข้อมูลสินค้าถูกเพิ่มแล้ว";
             header("Location:controItem.php");

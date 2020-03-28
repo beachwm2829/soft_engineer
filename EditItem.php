@@ -14,7 +14,7 @@
         <link href="css/buttons.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body class="gay">
-     <script src="java.js">
+    <script src="js/java.js">
             
      </script>
     <?php
@@ -69,7 +69,7 @@
         </div>
     </div>
      <center>
-         <button class="botY" value="<?php echo $id; ?>" name="button" onclick="return azz()>
+         <button class="botY" value="<?php echo $id; ?>" name="button" onclick="return azz()">
                 <a class= "botN" >ยืนยัน</a>
         </button>
      </center>

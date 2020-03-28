@@ -10,7 +10,7 @@
         <link href="css/buttons.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body class="gay">
-    <script src="java.js">
+    <script src="js/java.js">
             
     </script>
     <div class="row">
@@ -48,7 +48,7 @@
         </div>
     </div>
      <center>
-         <button class="botY" value="2" name="button" onclick="return azz()>
+         <button class="botY" value="2" name="button" onclick="return azz()">
                 <a class="botN" >ยืนยัน</a>
         </button>
      </center>
