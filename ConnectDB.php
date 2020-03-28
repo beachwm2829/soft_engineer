@@ -51,20 +51,21 @@ class ConnectDB {
         }
     }
 
-    public function update($user_id, $user_pass, $user_name, $user_sex, $user_tel, $user_address) {
+    public function update($user_id, $user_username, $user_pass, $user_name, $user_sex, $user_tel, $user_adrress, $user_status) {
         session_start();
-        $sql = "UPDATE user SET  user_pass='$user_pass', user_name='$user_name', user_sex='$user_sex', user_tel='$user_tel', user_address='$user_address' WHERE user_id='" . $user_id . "'";
+        $sql = "UPDATE `user` SET  `user_username` = '".$user_username."', `user_pass`='".$user_pass."', `user_name`='".$user_name."', `user_sex`='".$user_sex."', `user_tel`='".$user_tel."', `user_address`='".$user_adrress."', `user_status`='".$user_status."' WHERE `user_id`='".$user_id."'";
         if (mysqli_query($this->connect(), $sql)) {
             if ($_SESSION['user_status'] == "User") {
                 $_SESSION['text'] = "ข้อมูลถูกอัพเดทแล้ว";
                 header("Location:information.php");
             } else {
                 $_SESSION['text'] = $spl;
-                header("Location:FormAdmin.php");
+                echo $sql;
+                //header("Location:FormAdmin.php");
             }
         } else {
             $_SESSION['text'] = "มีข้อผิดพลาดในการอัพเดท";
-            echo '<p>Canot UPDATE';
+            echo $sql;
         }
     }
 
