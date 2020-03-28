@@ -35,14 +35,17 @@
                        //echo "<p>status=".$_SESSION['status'];         
             ?>
             <form name="FormInput" action="checkaction.php" method="POST" onsubmit="return checkformInput()">
-            <label class="LabelText" value="<?php echo $row['user_id']; ?>" name="user_id">ID <?php echo $row['user_id']; ?></label>            
+                <label class="LabelText" for="id">ID</label> 
+                <?php
+                        echo "<input type='text' id='user_id' name ='user_id' value='".$row['user_id']."'>";
+             ?>
             <label class="LabelText" >Username</label>
             <?php
                         echo "<input type='text' id='user_username' name ='user_username' value='".$row['user_username']."' >";
              ?>
             <label class="LabelText" for="id">PASSWORD</label>
             <?php
-                        echo "<input type='password' id='user_pass' name ='user_pass' value='".$row['user_pass']."'>";
+                        echo "<input type='text' id='user_pass' name ='user_pass' value='".$row['user_pass']."'>";
              ?>
             <label class="LabelText" for="id">ชื่อ</label>
             <?php
