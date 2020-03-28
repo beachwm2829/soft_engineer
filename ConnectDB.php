@@ -16,6 +16,7 @@ class ConnectDB {
         if(mysqli_num_rows($result)==1){
             session_start();
             $row = mysqli_fetch_array($result);
+            $_SESSION["uid"] = $row['user_id'];
             $_SESSION['user']=$row['user_username'];
             $_SESSION['pass']=$row['user_pass'];
     
@@ -72,10 +73,10 @@ class ConnectDB {
             $_SESSION['text']="มีข้อผิดพลาดในการอัพเดทข้อมูลสินค้า ".$sql;
         }
     }
-   public function AddProduct($item_name,$item_price,$item_detail,$item_amount,$pro_image){
+   public function AddProduct($item_name,$item_price,$item_detail,$item_amount,$item_type,$pro_image){
         session_start();
-        $sql = "INSERT INTO `items`(`item_name`, `item_price`, `item_detail`, `item_amount`, `img`, `user_id`)"
-                . "VALUES ('$item_name', '$item_price', '$item_detail', '$item_amount', '$pro_image', '1')";
+        $sql = "INSERT INTO `items`(`item_name`, `item_price`, `item_detail`, `item_amount`, `item_type`, `img`, `user_id`)"
+                . "VALUES ('$item_name', '$item_price', '$item_detail', '$item_amount', '$item_type', '$pro_image', '1')";
         if(mysqli_query($this->connect(), $sql)){
                 $_SESSION['text']="ข้อมูลสินค้าถูกเพิ่มแล้ว";
                 header("Location:controItem.php");
@@ -101,6 +102,20 @@ class ConnectDB {
         echo $sql;
         }
     }
+     public function AddPayment($user_id,$item_id,$date,$pay,$img,$status){
+        session_start();
+        $sql = "INSERT INTO `payment`(`User _ID`, `Item_ID`, `Cdit_Date`)"
+                . "VALUES ($user_id,$item_id,'$date')";
+        if(mysqli_query($this->connect(), $sql)){
+                $_SESSION['text']="ข้อมูลการสั่งซื้อถูกเพิ่มแล้ว";
+                echo 'if';
+                header("Location:information.php");
+        }else{
+            $_SESSION['text']="มีข้อผิดพลาดในการเพิ่มข้อมูลสั่งซื้อ ".$sql;
+            echo $sql;
+        }
+    }
+    
 //    public function delete($del){
 //        session_start();
 //        if (sizeof($del)!=0){

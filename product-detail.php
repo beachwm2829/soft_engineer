@@ -16,6 +16,7 @@
     </head>
     <body>
         <?php
+        session_start();
         include('navbar.php');
         $t_id = $_GET['itemid'];
         require_once './ConnectDB.php';
@@ -24,6 +25,8 @@
         $prd = mysqli_query($con->connect(), $query_prd) or die(mysql_error());
         $row_prd = mysqli_fetch_assoc($prd);
         $totalRows_prd = mysqli_num_rows($prd);
+        $_SESSION['tid'] = $row_prd['item_id'];
+        
         ?>
         <!--start show  product--> 
         <div class="container">
@@ -36,8 +39,10 @@
                             <img src="fileupload/<?php echo $row_prd['img']; ?>" width="40%" style="margin-left: 20px"/>
                         </div>
                         <div class="col-sm" align="right">
-                            <h5><?php // echo $row_prd['item_name']; ?></h5>
-                            <a href="index.php" class="btn btn-info" style="margin-left: 22%"> ทั้งหมด </a>
+                            <h1><?php echo $row_prd['item_name']; ?></h1>
+                            <h5>ราคา <?php echo $row_prd['item_price']; ?> บาท</h5>
+                            <h5>รายละเอียดสินค้า <?php echo $row_prd['item_detail']; ?></h5>
+                            <a href="payment.php" class="btn btn-info" style="margin-left: 22%"> สั่งซื้อ </a>
                         </div>
                     </div>
                 </div>

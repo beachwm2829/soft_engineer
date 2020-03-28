@@ -10,7 +10,7 @@
             require_once  './ConnectDB.php';
             $con = new connectDB();
             if ($con->connect()) {
-                    $sql = "select * from product";
+                    $sql = "select * from items";
                     $objquery = mysqli_query($con->connect(), $sql);
             } else {
                         echo 'connect failed:' . mysql_error();
@@ -23,13 +23,13 @@
             while($row = mysqli_fetch_array($objquery)){
                 echo "<tr>";
                 //echo "<td><input type='checkbox' name='checkbox[]' value='".$row['mid']."'</td>";
-                echo "<td><a href=FormInputProduct.php?s=1&iid=".$row['p_id'].">แก้ไข</a></td>";
-                echo "<td>".$row['p_id']."</td>";
-                echo "<td>".$row['p_name']."</td>";
-                echo "<td>".$row['p_price']."</td>";
-                echo "<td>".$row['p_amount']."</td>";
-                echo "<td>".$row['p_type']."</td>";
-                echo "<td>".$row['p_image']."</td>";
+                echo "<td><a href=FormInputProduct.php?s=1&iid=".$row['item_id'].">แก้ไข</a></td>";
+                echo "<td>".$row['item_id']."</td>";
+                echo "<td>".$row['item_name']."</td>";
+                echo "<td>".$row['item_price']."</td>";
+                echo "<td>".$row['item_amount']."</td>";
+                echo "<td>".$row['item_type']."</td>";
+                echo "<td>".$row['img']."</td>";
                 echo "</tr>";
             }
             ?>
@@ -37,7 +37,6 @@
                        // echo "User=".$_SESSION['user'];
                         //echo "<p>pass=".$_SESSION['pass'];
                         //secho "<p>status=".$_SESSION['status'];
-                        echo "<CENTER>".$_SESSION['text']."</CENTER>";
             ?>
         </table>
         <center>

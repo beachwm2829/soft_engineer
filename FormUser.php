@@ -21,18 +21,17 @@
 }
 ?>
         <table>
-            <tr><th>แก้ไข</th><th>ID</th><th>ชื่อ</th><th>นามสกุล</th><th>สถานะ</th><th>กระเป๋าตัง</th><th>ที่อยู่</th></tr>
+            <tr><th>แก้ไข</th><th>Username</th><th>ชื่อ</th><th>เพศ</th><th>เบอร์โทร</th><th>ที่อยู่</th></tr>
             <?php
             while($row = mysqli_fetch_array($objquery)){
                 echo "<tr>";
                 //echo "<td><input type='checkbox' name='checkbox[]' value='".$row['mid']."'</td>";
                 echo "<td><a href=FormInput.php?s=1&user=".$row['user_username'].">แก้ไข</a></td>";
+                echo "<td>".$row['user_username']."</td>";
                 echo "<td>".$row['user_name']."</td>";
-                echo "<td>".$row['m_fname']."</td>";
-                echo "<td>".$row['m_lname']."</td>";
-                echo "<td>".$row['m_status']."</td>";
-                echo "<td>".$row['m_wallet']."</td>";
-                echo "<td>".$row['m_address']."</td>";
+                echo "<td>".$row['user_sex']."</td>";
+                echo "<td>".$row['user_tel']."</td>";
+                echo "<td>".$row['user_address']."</td>";
                 echo "</tr>";
             }
             ?>

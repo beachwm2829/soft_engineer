@@ -37,10 +37,10 @@
             
         </table>
         <center>
-            <a href="FormInput.php"><button class ="button button1">เพิ่มสมาชิก</button></a>
+<!--            <a href="FormInput.php"><button class ="button button1">เพิ่มสมาชิก</button></a>
             <a href="FormProduct.php"><button class ="button button1">คลังสินค้า</button></a>
             <a href=" "><button class ="button button1">โปรโมชัน</button></a>
-            <a href="checkpayment.php"><button class ="button button1">การชำระเงิน</button></a>
+            <a href="checkpayment.php"><button class ="button button1">การชำระเงิน</button></a>-->
         </center>
         <button class ="button button3"><a href="login.php" </a>Logout</button>
 <!--    </from>-->
