@@ -61,7 +61,7 @@ class ConnectDB {
             } else {
                 $_SESSION['text'] = $spl;
                 echo $sql;
-                //header("Location:FormAdmin.php");
+                header("Location:FormAdmin.php");
             }
         } else {
             $_SESSION['text'] = "มีข้อผิดพลาดในการอัพเดท";
