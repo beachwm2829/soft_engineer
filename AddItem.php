@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-	<title>Login</title>
+	<title>เพิ่มสินค้า</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,17 +14,14 @@
             
     </script>
     <div class="row">
-    <nav class="white" role="navigation">
+    <nav class="black" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Herbs for life</a>
-      <ul class="right hide-on-med-and-down">
-          <li><a data-target="nav-mobile" href="login.php">เข้าสู่ระบบ</a></li>
-      </ul>
+        <a id="logo-container" href="controItem.php" class="brand-logo">จัดการสินค้า</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">|</a></li>
       </ul>
       <ul  class="right hide-on-med-and-down">
-        <li><a data-target="nav-mobile" href="#">หน้าแรก</a></li>
+          <li><a data-target="nav-mobile" href="FormAdmin.php">หน้าแรก</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>

@@ -20,15 +20,20 @@ and open the template in the editor.
     </head>
     <body>
 <div class="row">
-       <nav class="white" role="navigation">
+        <div class="row">
+    <nav class="black" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Herbs for life</a>
+        <a id="logo-container" href="controItem.php" class="brand-logo">จัดการสินค้า</a>
       <ul class="right hide-on-med-and-down">
-          <li><a href="index.php">ออกจากระบบ</a></li>
+        <li><a href="#">|</a></li>
+      </ul>
+      <ul  class="right hide-on-med-and-down">
+          <li><a data-target="nav-mobile" href="FormAdmin.php">หน้าแรก</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
-        </nav> 
+  </nav>   
+    </div>
       <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
           <div class="bodycorom"> MENU </div>
           <HR>

@@ -29,12 +29,15 @@
         }
         else $text="Insert";
         ?>
-    <div class="row">
-    <nav class="white" role="navigation">
+     <div class="row">
+    <nav class="black" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Herbs for life</a> 
+        <a id="logo-container" href="controItem.php" class="brand-logo">จัดการสินค้า</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">|</a></li>
+      </ul>
       <ul  class="right hide-on-med-and-down">
-          <li><a data-target="nav-mobile" href="manu_2.php">กลับ</a></li>
+          <li><a data-target="nav-mobile" href="FormAdmin.php">หน้าแรก</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
