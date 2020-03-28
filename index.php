@@ -15,7 +15,15 @@
     </style>
   </head>
   <body>
-    <?php include('navbar.php');?>
+    <?php 
+    session_start();
+    if(isset($_SESSION['uid'])){
+        include('navbar_user.php');
+    }else{
+        include('navbar.php');
+    }
+    
+    ?>
     <div class="container">
       <div class="row">
         <div class="col-md-15">
