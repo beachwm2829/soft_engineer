@@ -35,7 +35,7 @@
                        //echo "<p>status=".$_SESSION['status'];         
             ?>
             <form name="FormInput" action="checkaction.php" method="POST" onsubmit="return checkformInput()">
-            <label class="LabelText" for="id">ID <?php echo $row['user_id']; ?></label>            
+            <label class="LabelText" value="<?php echo $row['user_id']; ?>" name="user_id">ID <?php echo $row['user_id']; ?></label>            
             <label class="LabelText" >Username</label>
             <?php
                         echo "<input type='text' id='user_username' name ='user_username' value='".$row['user_username']."' >";
